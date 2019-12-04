@@ -77,7 +77,7 @@ func main() {
 			log.Println(err)
 		}
 	} else {
-		if err := http.ListenAndServeTLS(fmt.Sprintf("%s:%d", *address, *port), "server.crt", "server.key", router); err != nil {
+		if err := http.ListenAndServeTLS(fmt.Sprintf("%s:%d", *address, *port), *ssl_crt, *ssl_key, router); err != nil {
 			log.Println(err)
 		}
 	}
