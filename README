@@ -1,0 +1,34 @@
+#created time 2019-03-04 17:40:45
+
+该服务只能在Windows Server上运行，跟据Micrisoft官网建议，最好基于WindowsServer2012R2
+
+服务组成部份：
+    1、Papereader.exe   /*c++编写*/
+        该服务提供Http Post接口用于接受文本字符，并转换为mp4的语音文件。
+        转换成功后，返回对应语音文件访问链接
+        Example:
+            curl -X POST -i 'http://ipaddress:3255/api/speak' --data '{"text":"韩梅梅 你好！我是李雷。"}'
+            
+        Response:
+            {
+                "Message" : "sucess",   
+                "code" : "200",
+                "fileurl" : "http://ipaddress:3256/file/voice?filename=VoiceFile_aaf51344-bf5d-4614-82fd-f78625479643.mp4"
+            }
+
+            
+    2、FileServer.exe   /*golang编写*/
+        该服务提供Http Get接口，用于提供语音文件的访问
+        如需帮助，FileServer.exe --help
+        
+    使用链接http://ipaddress:3256/file/voice?filename=VoiceFile_aaf51344-bf5d-4614-82fd-f78625479643.mp4进行播放即可
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

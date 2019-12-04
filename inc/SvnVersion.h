@@ -1,0 +1,3 @@
+#define VERSION_SVN "87bf786f8c8868cbec820d6be571d84a918f2a16"
+
+#define BUILD_DATE "2019-01-16 10:04:40"

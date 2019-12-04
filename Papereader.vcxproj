@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{43193839-FEFF-4969-9778-8FF27E7BF969}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Papereader</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32;WIN32_LEAN_AND_MEAN;_WSPIAPI_COUNTOF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\inc\httpd\;.\inc\;.\inc\CommTools\;.\inc\lyutils\;.\inc\ffmpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>.\lib\debug\httpd;.\lib\debug\;.\lib\ffmpeg\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>jsoncpp_d.lib;log4cpp.lib;CommTools.lib;ServerCommon.lib;lyutils.lib;libmicrohttpd-dll_d.lib;ws2_32.lib;sapi.lib;swresample.lib;avcodec.lib;avutil.lib;postproc.lib;swscale.lib;avdevice.lib;avfilter.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CONSOLE;WIN32;WIN32_LEAN_AND_MEAN;_WSPIAPI_COUNTOF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\inc\httpd\;.\inc\;.\inc\CommTools\;.\inc\lyutils\;.\inc\ffmpeg;.\inc\civet\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>.\lib\release\;.\lib\ffmpeg\;.\lib\release\httpd\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>jsoncpp.lib;log4cpp.lib;CommTools.lib;ServerCommon.lib;lyutils.lib;civetweb.lib;ws2_32.lib;sapi.lib;swresample.lib;avcodec.lib;avutil.lib;postproc.lib;swscale.lib;avdevice.lib;avfilter.lib;avformat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\source\CivetServer.cpp" />
+    <ClCompile Include="src\source\VoiceConvert.cpp" />
+    <ClCompile Include="src\source\HttpServer.cpp" />
+    <ClCompile Include="src\source\MainServer.cpp" />
+    <ClCompile Include="src\source\PapereaderMain.cpp" />
+    <ClCompile Include="src\source\PapereaderVersion.cpp" />
+    <ClCompile Include="src\source\Speaker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\source\CivetServer.h" />
+    <ClInclude Include="src\source\HttpServer.h" />
+    <ClInclude Include="src\source\MainServer.h" />
+    <ClInclude Include="src\source\PapereaderGlobalDef.h" />
+    <ClInclude Include="src\source\PapereaderVersion.h" />
+    <ClInclude Include="src\source\Speaker.h" />
+    <ClInclude Include="src\source\VoiceConvert.h" />
+    <ClInclude Include="src\source\wordencoding.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="x64\Release\Papereader.conf" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
