@@ -66,7 +66,7 @@ func main() {
 
 	router := http.NewServeMux()
 	router.HandleFunc("/", safe_http_handle(safe_statement))
-	router.HandleFunc(*url_path, safe_http_handle(data_upload))
+	router.HandleFunc(*url_path, safe_http_handle(visit_voice_file))
 
 	fmt.Printf("Service listen on %s:%d:%s\n", *address, *port, *url_path)
 	log.Printf("Service listen on %s:%d:%s\n", *address, *port, *url_path)
@@ -141,7 +141,7 @@ func listenSignal() {
 	}
 }
 
-func data_upload(w http.ResponseWriter, r *http.Request) {
+func visit_voice_file(w http.ResponseWriter, r *http.Request) {
 	var resp RespMsg
 	if r.Method != http.MethodGet {
 		resp.ErrCode = http.StatusMethodNotAllowed
